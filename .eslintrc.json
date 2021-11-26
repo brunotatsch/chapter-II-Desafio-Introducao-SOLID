@@ -23,6 +23,7 @@
     "@typescript-eslint/naming-convention": [
       "error",
       {
+        "endOfLine": "auto",
         "selector": "interface",
         "format": ["PascalCase"],
         "custom": {
