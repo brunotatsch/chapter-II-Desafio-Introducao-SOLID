@@ -10,9 +10,12 @@ class ListAllUsersUseCase {
 
   execute({ user_id }: IRequest): User[] {
     
-    const userIsAdmin = this.usersRepository.findById(user_id).isAdmin;
+    const userIsAdmin = this.usersRepository.findById(user_id);
 
-    if (!userIsAdmin) {
+    console.log(userIsAdmin.isAdmin);
+    console.log(userIsAdmin);
+    
+    if (!userIsAdmin.isAdmin) {
       throw new Error("Only admins can list all users");
     }
 
