@@ -49,7 +49,7 @@ class UsersRepository implements IUsersRepository {
    
     const updateUser = this.users.find(user => user.id === receivedUser.id);
 
-    Object.assign(updateUser, { admin: true, update_at: new Date()});
+    Object.assign(updateUser, { admin: true, updated_at: new Date()});
 
     return updateUser;
 
