@@ -4,7 +4,7 @@ class User {
   id: string;
   name: string;
   email: string;
-  isAdmin?: boolean;
+  admin?: boolean;
   created_at: Date;
   updated_at: Date;
 

@@ -1,3 +1,4 @@
+import { ErrorNlw } from "../../../../utils/ErrorNlw";
 import { User } from "../../model/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -12,10 +13,7 @@ class ListAllUsersUseCase {
     
     const userIsAdmin = this.usersRepository.findById(user_id);
 
-    console.log(userIsAdmin.isAdmin);
-    console.log(userIsAdmin);
-    
-    if (!userIsAdmin.isAdmin) {
+    if (!userIsAdmin || !userIsAdmin.admin) {
       throw new Error("Only admins can list all users");
     }
 

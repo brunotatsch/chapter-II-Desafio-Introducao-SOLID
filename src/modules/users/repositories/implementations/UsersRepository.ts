@@ -18,10 +18,10 @@ class UsersRepository implements IUsersRepository {
     return UsersRepository.INSTANCE;
   }
 
-  create({ name, email }: ICreateUserDTO): User {
+  create({ name, email , admin = false, created_at = new Date(), updated_at = new Date()}: ICreateUserDTO): User {
     const user = new User();
 
-    Object.assign(user, { name, email , isAdmin: false, created_at: new Date(), updated_at: new Date() });
+    Object.assign(user, { name, email , admin, created_at, updated_at });
 
     this.users.push(user);
     
@@ -47,7 +47,7 @@ class UsersRepository implements IUsersRepository {
    
     const updateUser = this.users.find(user => user.id === receivedUser.id);
 
-    updateUser.isAdmin = true;
+    Object.assign(updateUser, { admin: true, update_at: new Date()});
 
     return updateUser;
 
