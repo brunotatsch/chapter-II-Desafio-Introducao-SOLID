@@ -22,7 +22,9 @@ class UsersRepository implements IUsersRepository {
     const user = new User();
 
     Object.assign(user, { name, email , admin, created_at, updated_at });
-
+    
+    console.log({user});
+    
     this.users.push(user);
     
     return user;
